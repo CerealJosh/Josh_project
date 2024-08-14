@@ -1,0 +1,11 @@
+pandas
+matplotlib
+xgboost
+seaborn
+scikit-learn
+tensorflow == 2.14.1
+numpy==1.26.4
+colorthief
+pyqt5
+lxml
+OpenCV-python
