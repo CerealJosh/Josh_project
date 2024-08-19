@@ -6,15 +6,15 @@ import os
 
 # Define the path to your trained model and the directory of images you want to classify
 model_path = 'C:/Users/Josh/source/repos/ProjectServer/Josh-main/VGG16_image_classifier.h5'
-image_dir = 'C:/Users/Josh/source/repos/ProjectServer/Josh-main/Test'
+image_dir = 'C:/Users/Josh/source/repos/ProjectServer/Josh-main/Fire.png'
 
 # Load the trained model
 model = tf.keras.models.load_model(model_path)
 model.class_names = ['blue', 'green', 'orange', 'white']  # Define the class names
 
 # Define image dimensions (must match the dimensions used during training)
-img_height = 128
-img_width = 128
+img_height = 224
+img_width = 224
 
 
 def load_and_preprocess_image(img_path):
@@ -41,13 +41,10 @@ def classify_images(image_dir):
     """
     Classify all images in the given directory.
     """
-    # List all image files in the directory
-    image_files = [f for f in os.listdir(image_dir) if os.path.isfile(os.path.join(image_dir, f))]
-    
-    for img_file in image_files:
-        img_path = os.path.join(image_dir, img_file)
-        predicted_class = predict_image(img_path)
-        print(f"Predicted Class: {predicted_class}")
+    image_files = image_dir
+
+    predicted_class = predict_image(image_dir)
+    print(f"Predicted Class: {predicted_class}")
 
 # Run the classification
 classify_images(image_dir)
